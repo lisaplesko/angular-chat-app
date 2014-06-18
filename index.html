@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" x-ng-app="chatApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CHAT</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <div x-ng-controller="ChatController">
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <!-- INPUT HERE -->
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h1 class="cover-heading">Say something.</h1>
+              <div>
+                <input type="text" x-ng-model="newComment">
+                <button ng-click="addComment(newComment)" class="btn btn-sm">Go.</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMMENTS GET PRINTED HERE -->
+          <div class="comments">
+
+            <table>
+              <tr x-ng-repeat="c in comments">
+                <td>{{c.comment}} <span class="details">posted at {{c.when}} by {{c.name}}</span></td>
+              </tr>
+            </table>
+
+           <!--  <div x-ng-repeat="c in comments">
+              <p>{{c.comment}}, posted at {{c.when}} by {{c.name}}</p>
+            </div> -->
+
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Chat by <a href="https://twitter.com/lplesko">@lplesko</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+  <script src="js/app.js"></script>
+
+  </body>
+</html>
